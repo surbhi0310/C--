@@ -1,0 +1,151 @@
+Step-by-Step Process to Write Optimal Code
+STEP 1: Write the Brute Force First (ALWAYS)
+
+Don’t jump to optimization.
+
+Ask:
+
+“What is the most straightforward way?”
+
+Example (Divisors):
+
+for(int i = 1; i <= n; i++)
+    if(n % i == 0) print(i);
+
+
+✔ Simple
+❌ Slow
+
+👉 This helps you understand the problem fully.
+
+STEP 2: Analyze Time & Space Complexity
+
+Ask:
+
+How many times does the loop run?
+
+Is there a nested loop?
+
+Quick rules:
+Code Pattern	Complexity
+Single loop	O(n)
+Nested loop	O(n²)
+Loop till √n	O(√n)
+Sorting	O(n log n)
+Hash map	O(1) avg
+
+If constraints say:
+
+n ≤ 10^9
+
+
+❌ O(n) → TLE
+✔ O(√n) → OK
+
+STEP 3: Look for Patterns / Math / Properties
+
+Ask:
+
+Are values repeating?
+
+Are things coming in pairs?
+
+Can I reduce the range?
+
+Examples:
+
+Problem	Optimization Insight
+Divisors	Pair property → √n
+Palindrome	Reverse half
+Single number	XOR
+Armstrong	Digit count reuse
+Search	Binary search
+STEP 4: Ask “Can I Avoid Repeating Work?”
+
+This is the heart of optimization.
+
+Example:
+
+pow(ld, count)
+
+
+Repeated many times → slow
+✔ Pre-calculate count once
+✔ Or avoid pow() completely
+
+STEP 5: Choose Right Data Structures
+
+Ask:
+
+“Am I using the right tool?”
+
+Problem	Best Structure
+Fast lookup	unordered_map
+Unique elements	set
+Order matters	vector
+Range queries	prefix sum
+
+Wrong structure = slow code.
+
+🧠 A Golden Interview Formula
+
+When solving ANY problem, ask:
+
+1️⃣ Brute force?
+2️⃣ Complexity?
+3️⃣ Can I reduce loops?
+4️⃣ Math trick?
+5️⃣ Better DS?
+
+📌 Example: Divisors (Your Case)
+❌ Your Code
+for(int i=1;i<=n/2;i++)
+
+
+Time = O(n)
+
+✅ Optimal Thinking
+
+Divisors come in pairs
+
+Only check till √n
+
+Print both
+
+🚦 How to CHECK if your solution is optimal
+
+Ask yourself:
+
+Can I remove a loop?
+
+Can I reduce range?
+
+Can I use math instead of iteration?
+
+Can I trade space for time?
+
+If answer = ❌ → not optimal yet
+
+🧪 Competitive Programming Rule of Thumb
+Constraint	Acceptable Complexity
+n ≤ 10³	O(n²)
+n ≤ 10⁵	O(n log n)
+n ≤ 10⁷	O(n)
+n ≤ 10⁹	O(√n)
+Huge input	O(log n)
+🔥 One Powerful Habit (DO THIS)
+
+After solving any problem, ask:
+
+“Can I solve this without a loop?”
+
+Most optimizations start there.
+
+🎯 Final Advice for You (Very Important)
+
+You are already:
+✔ Writing correct logic
+✔ Asking WHY (best habit)
+
+Next step:
+➡ Start analyzing complexity before writing final code

@@ -316,7 +316,7 @@ int main() {
     }
     cout<<endl;
     
-    // ------------Pattern 24(Square)---------------    
+    // -----------Pattern 24(Square)--------
     for(int i=0;i<s;i++){
       for(int j=0;j<s;j++){
         if((i==0)||(i==s-1)||(j==0)||(j==s-1)){
@@ -328,9 +328,8 @@ int main() {
       }cout<<endl;
     }
 
-    // ------------Pattern 25---------------    
-    // int s;
-    // cin>>s;
+    // ------------Pattern 25---------------
+    int s;//brute force approach (not recommended)
     s=7;
     for(int i=0;i<s;i++){
       for(int j=0;j<s;j++){
@@ -350,12 +349,51 @@ int main() {
         }
       }cout<<endl;
     }
+
     cout<<endl;
 // ---------------OR-----------------
+    int s; //optimal maths formula based approach
+    cin >> s;
     for (int i = 0; i < s; i++) {
         for (int j = 0; j < s; j++) {
             int minDist = min(min(i, j), min(s - i - 1, s - j - 1));
             cout << (s / 2 + 1 - minDist);
+        }
+        cout << endl;
+    }
+    for (int i = 0; i < s; i++) {
+        for (int j = 0; j < s; j++) {
+            int minDist = min(
+                min(i, j),
+                min(s - i - 1, s - j - 1)
+            );
+            cout << n - minDist << " ";
+        }
+        cout << endl;
+    }
+
+    // ----------------OR-----------------
+    // int n;
+    // cin >> n;
+    int size = 2 * n - 1;
+    // create 2D array (optimal way using vector)
+    vector<vector<int>> arr(size, vector<int>(size));
+    int start = 0;
+    int end = size - 1;
+    int value = n;
+    while (value > 0) {
+        for (int i = start; i <= end; i++) {
+            for (int j = start; j <= end; j++) {
+                arr[i][j] = value;l
+            }
+        }
+        start++;
+        end--;
+        value--;
+    }
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            cout << arr[i][j] << " ";
         }
         cout << endl;
     }

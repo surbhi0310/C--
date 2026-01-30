@@ -1,4 +1,4 @@
-
+//max length of an array inside int main() is 10^6 and outside it (defined globally) is 10^7
 #include <iostream>
 using namespace std;
 int main(){

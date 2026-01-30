@@ -384,7 +384,7 @@ int main() {
     while (value > 0) {
         for (int i = start; i <= end; i++) {
             for (int j = start; j <= end; j++) {
-                arr[i][j] = value;l
+                arr[i][j] = value;
             }
         }
         start++;

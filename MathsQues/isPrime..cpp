@@ -21,6 +21,7 @@ bool isPrime(int n)
   return true;
 }
 // -------------------OR-----------------------
+//optimal approach
 bool IsPrime(int n)
 {
   if (n <= 1)

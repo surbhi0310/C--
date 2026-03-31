@@ -18,7 +18,7 @@ using namespace std;
       temp[i]= arr[n-1-i];
     }
     cout<<endl;
-     cout<<"Reversed Array: ";
+    cout<<"Reversed Array: ";
     for(int i=0;i<n; i++){
       arr[i]=temp[i];
       cout<<arr[i]<<" ";

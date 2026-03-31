@@ -2,58 +2,49 @@
 #include <iostream>
 #include <climits>
 using namespace std;
+#include <vector>
 // Time Complexity: O(N), we do two linear traversals in our array.
 // Space Complexity: O(1), as we are using a constant
 
-int SecondLargestElement(int arr[], int n) {
-    if (n < 2) return -1;
-    int largest = arr[0];
-    int secondlargest = INT_MIN;
-    for (int i = 1; i < n; i++) {
-        if (arr[i] > largest) {
-            secondlargest = largest;
-            largest = arr[i];
+int getSecondLargest(vector<int> &arr) {
+        int max = INT_MIN;
+        int secmax = INT_MIN;
+        for(int i=0; i<arr.size();i++){
+            if(max<arr[i]){
+                secmax=max;
+                max=arr[i];
+            }
+            else if(arr[i]>secmax && arr[i]!=max){
+                secmax = arr[i];
+            }
+        }return (secmax==INT_MIN)?-1:secmax;
+    }
+int getSecondSmallest(vector<int> &arr) {
+    int min = INT_MAX;
+    int secmin = INT_MAX;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] < min) {
+            secmin = min;
+            min = arr[i];
         }
-        else if (arr[i] < largest && arr[i] > secondlargest) {
-            secondlargest = arr[i];
+        else if (arr[i] > min && arr[i] < secmin) {
+            secmin = arr[i];
         }
     }
-    if (secondlargest == INT_MIN)//all elements are equal
-        return -1;
-    return secondlargest;
-}
-
-int SecondSmallestElement(int arr[], int n) {
-    if (n < 2) return -1;
-    int smallest = arr[0];
-    int secondsmallest = INT_MAX;
-    for (int i = 1; i < n; i++) {
-        if (arr[i] < smallest) {
-            secondsmallest = smallest;
-            smallest = arr[i];
-        }
-        else if (arr[i] > smallest && arr[i] < secondsmallest) {
-            secondsmallest = arr[i];
-        }
-    }
-    if (secondsmallest == INT_MAX)//all elements are equal
-        return -1;
-    return secondsmallest;
+    return (secmin == INT_MAX) ? -1 : secmin;
 }
 
 int main() {
-    int arr[] = {12, 34, 56, 253, 98, 1, 8};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int secondLargest = SecondLargestElement(arr, n);
-    int secondSmallest = SecondSmallestElement(arr, n);
-    if (secondLargest == -1)
+    vector<int> arr = {12, 34, 56, 253, 98, 1, 8};
+    int secmax = getSecondLargest(arr);
+    int secmin = getSecondSmallest(arr);
+    if (secmax == -1)
         cout << "Second largest element does not exist" << endl;
     else
-        cout << "Second largest element: " << secondLargest << endl;
-
-    if (secondSmallest == -1)
-        cout << "Second smallest element does not exist" << endl;
+        cout << "Second largest element: " << secmax << endl;
+    if (secmin == -1)
+        cout << "Second min element does not exist" << endl;
     else
-        cout << "Second smallest element: " << secondSmallest << endl;
+        cout << "Second min element: " << secmin << endl;
     return 0;
 }

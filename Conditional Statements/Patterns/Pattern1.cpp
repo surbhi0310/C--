@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+#include <vector>
 
 int main() {
     int n;
@@ -329,8 +330,8 @@ int main() {
     }
 
     // ------------Pattern 25---------------
-    int s;//brute force approach (not recommended)
-    s=7;
+    // int s;//brute force approach (not recommended)
+    // s=7;
     for(int i=0;i<s;i++){
       for(int j=0;j<s;j++){
         if((i==0)||(i==s-1)||(j==0)||(j==s-1)){
@@ -352,8 +353,8 @@ int main() {
 
     cout<<endl;
 // ---------------OR-----------------
-    int s; //optimal maths formula based approach
-    cin >> s;
+    // int s; //optimal maths formula based approach
+    // cin >> s;
     for (int i = 0; i < s; i++) {
         for (int j = 0; j < s; j++) {
             int minDist = min(min(i, j), min(s - i - 1, s - j - 1));
@@ -371,7 +372,7 @@ int main() {
         }
         cout << endl;
     }
-
+    cout<<endl;
     // ----------------OR-----------------
     // int n;
     // cin >> n;

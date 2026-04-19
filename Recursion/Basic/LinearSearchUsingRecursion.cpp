@@ -1,26 +1,26 @@
 #include <iostream> 
-#include <vector>
-#include <algorithm>
 using namespace std;
 
-vector<int> LinearSearch(vector<int> arr, int target){
-    if(arr.size()==0){
-    return -1;
+bool LinearSearch(int arr[], int n, int target){
+    if(n==0){
+        return false;
     }
     if(arr[0]==target){
-        return 0;
+        return true;
     }
-    
+    bool remainingPart = LinearSearch(arr+1,n-1, target);
+        return remainingPart;
 }
 
 int main(){
-    vector<int> arr = {1,2,3,4,5};
+    int arr[] = {1,2,3,4,5};
     int target = 3;
-    int result = LinearSearch(arr, target);
-    if(result != -1){
-        cout << "Element found at index: " << result << endl;
+    int n = sizeof(arr)/sizeof(arr[0]);
+    bool result = LinearSearch(arr, n, target);
+    if(result){
+        cout << "Present" << endl;
     } else {
-        cout << "Element not found in the array." << endl;
+        cout << "Not Present" << endl;
     }
     return 0;
 }
